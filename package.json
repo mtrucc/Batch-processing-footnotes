@@ -1,0 +1,13 @@
+{
+  "name": "Batch-processing-footnotes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mtrucc/Batch-processing-footnotes.git",
+  "author": "Mt.r <mtrucc@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^8.0.1",
+    "lodash": "^4.17.11",
+    "xregexp": "^4.2.4"
+  }
+}
