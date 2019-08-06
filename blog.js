@@ -1,13 +1,13 @@
-const fs = require('fs-extra')
-const path = require("path")
-const XRegExp = require('xregexp');
+const fs = require("fs-extra");
+const path = require("path");
+const XRegExp = require("xregexp");
 
 // 文件路径
-let helloWordPath = path.join('./files', 'hello-world.md'); // 文章
-let outputPath = path.join('./files', 'output.json'); // 输出文件
+let helloWordPath = path.join("./files", "hello-world.md"); // 文章
+let outputPath = path.join("./files", "output.json"); // 输出文件
 
 // 内容读取
-let helloword = fs.readFile(helloWordPath, 'utf8')
+let helloword = fs.readFile(helloWordPath, "utf8");
 // helloword.then(e => {
 //   console.log(e)
 // })
@@ -16,27 +16,28 @@ let helloword = fs.readFile(helloWordPath, 'utf8')
 // 清空输出文件
 // let output = fs.outputFile(outputPath, '')
 
-// 拆分脚注内容 
+// 拆分脚注内容
 const footnoteRegex = XRegExp(/(?<num>\*\*.{1,3}\*\*)(?<text>.*)/);
 
 helloword.then(postsData => {
-    // 获取脚注内容并处理
-    console.log(postsData)
-    let footnoteInfo = [];
-    XRegExp.forEach(postsData, /(!\[)(.*)(\])(\()(.*)(( ")(.*)("))?(\))/, function (match, i) {
-      console.log(match,i)
-        // let dataProcess = XRegExp.exec(match[0], footnoteRegex);
-        // console.log(dataProcess.groups.num)
-        // console.log(dataProcess.groups.text)
-        // let info = {
-        //     num: dataProcess.groups.num,
-        //     text: dataProcess.groups.text
-        // }
-        // footnoteInfo.push(info)
-    });
-    // console.log(postsData)
-    // return footnoteInfo
-})
+  // 获取脚注内容并处理
+  console.log(postsData);
+  let footnoteInfo = [];
+  XRegExp.forEach(
+    postsData,
+    /\[(?<altText>.*?)\]\((?<imageUrl>[^\s"]+)(?: \"(?<iamgeTitle>.*?)\")?\)/,
+    function(match, i) {
+      let info = {
+        altText: match.groups.altText,
+        imageUrl: match.groups.imageUrl,
+        iamgeTitle: match.groups.iamgeTitle
+      };
+      footnoteInfo.push(info);
+    }
+  );
+  console.log(footnoteInfo)
+  return footnoteInfo
+});
 
 // .then(postsData => {
 //     // 获取经文并替换经文中内容为脚注内容

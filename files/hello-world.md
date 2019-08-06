@@ -29,7 +29,7 @@ Altium Designer 18是一款简单易用、原生3D设计增强的一体化设计
 ![](https://files.itnote.me/images/adinstall6.jpg "添加单机版license文件")
 - 选择安装包，Licenses目录下任意一个文件载入即可，Altium Designer 18破解版安装完成。
 ![](https://files.itnote.me/images/adinstall7.jpg "导入Licenses")
-![123123](https://files.itnote.me/images/adinstall8.jpg "导入Licenses成功")
+![123123](https://files.itnote.me/images/adinstall8.jpg)
 
 
 ## Altium Designer 18.0.8 下载地址
